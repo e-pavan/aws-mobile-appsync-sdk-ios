@@ -11,8 +11,8 @@ final class AWSSubscriptionMetaDataCache {
     
     private let db: Connection
     private let subscriptionMetadataRecords = Table("subscription_metadata")
-    private let operationHash = Expression<String>("operationHash")
-    private let lastSyncDate = Expression<Date?>("lastSyncDate")
+    private let operationHash = SQLite.Expression<String>("operationHash")
+    private let lastSyncDate = SQLite.Expression<Date?>("lastSyncDate")
     
     init(fileURL: URL) throws {
         AppSyncLog.verbose("Initializing subscription metadata cache at \(fileURL.absoluteString)")
